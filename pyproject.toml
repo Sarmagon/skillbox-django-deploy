@@ -1,0 +1,25 @@
+[project]
+name = "skillbox-django-prod"
+version = "0.1.0"
+description = "Практическая работа 20. Django deployment"
+authors = [
+    { name = "Stanislav" }
+]
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "asgiref==3.6.0",
+    "Django==4.2",
+    "django-debug-toolbar==4.0.0",
+    "django-filter==22.1",
+    "djangorestframework==3.14.0",
+    "Pillow==9.4.0",
+    "pytz==2022.7.1",
+    "sqlparse==0.4.2"
+]
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
