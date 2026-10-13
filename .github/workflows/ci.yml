@@ -1,0 +1,11 @@
+name: Deployment Lab checks
+on: [push, pull_request]
+jobs:
+  django-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t deployment-lab-ci .
+      - run: docker run --rm --entrypoint python deployment-lab-ci manage.py check
+      - run: docker run --rm --entrypoint python deployment-lab-ci manage.py makemigrations --check --dry-run
+      - run: docker run --rm --entrypoint python deployment-lab-ci manage.py test
